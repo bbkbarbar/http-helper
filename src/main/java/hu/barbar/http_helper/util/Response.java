@@ -1,5 +1,7 @@
 package hu.barbar.http_helper.util;
 
+import org.json.simple.JSONObject;
+
 /**
  * Response object to store the following response data: 
  * <br> - url (optional)
@@ -44,6 +46,13 @@ public class Response {
 
 	public StringBuffer getResponseBody() {
 		return responseBody;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public JSONObject getResponseJson() {
+		JSONObject json = new JSONObject();
+		json.put("body", getResponseBody());
+		return json;
 	}
 	
 	public String getUrl(){
