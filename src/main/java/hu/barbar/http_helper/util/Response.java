@@ -51,7 +51,10 @@ public class Response {
 	@SuppressWarnings("unchecked")
 	public JSONObject getResponseJson() {
 		JSONObject json = new JSONObject();
+		json.put("response_code", getCode());
+		json.put("url", getUrl());
 		json.put("body", getResponseBody());
+		
 		return json;
 	}
 	
